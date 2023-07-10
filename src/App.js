@@ -12,16 +12,28 @@ const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m
 export default function App() {
 
   const [desabilitadorElementos, setDesabilitadorElementos] = useState(true);
+  const [palavraRandom, setPalavraRandom] = useState('');
+  const [palavraJogo, setPalavraJogo] = useState({})
+
+  const comecarJogo() {
+    setDesabilitadorElementos(false);
+    const indiceRandom = Math.floor(Math.random() * palavras.length)
+    const palavra = palavras[indiceSorteado]
+    setPalavraRandom(palavra);
+    const arrayPalavra = palavra.split('');
+    const espacosEmBranco = arrayPalavra.map(letra => ' _')
+    setPalavraJogo(espacosEmBranco)
+  }
 
   return (
     <div className='tela-inteira'>
       <div className='forca'>
         <img src={forca0} alt='imagem da forca' />
-        <button>Escolher Palavra</button>
-        <h1>Palavra</h1>
+        <button onClick={comecarJogo}>Escolher Palavra</button>
+        <h1>{palavraJogo}</h1>
       </div>
       <div className='alfabeto'>
-        {alfabeto.map(letra=> <button disabled={desabilitadorElementos}>{letra}</button>)}
+        {alfabeto.map(letra=> <button key={letra} disabled={desabilitadorElementos}>{letra}</button>)}
       </div>
       <div className='input'>
         <span>Já sei a palavra</span>
