@@ -1,22 +1,23 @@
-const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+import {useState} from 'react'
 
+export default function Letras({erros, setErros, palavraJogo, setPalavraJogo, palavraRandom, setPalavraRandom, setClasseCor, setDesabilitadorElementos, setLetrasEscolhidas, letrasEscolhidas, alfabeto}) {
 
-export default function Letras({erros, setErros, palavraJogo, setPalavraJogo, setClasseCor, setDesabilitadorElementos}) {
-
-    const [letrasEscolhidas, setLetrasEscolhidas] = useState([...alfabeto])
+    
     
     function selecionarLetra(letra) {
         const novoArray = [...letrasEscolhidas, letra];
         setLetrasEscolhidas(novoArray);
-    
+
+            
         if (palavraRandom.includes(letra)){
           const novaPalavra = [...palavraJogo]
-          palavraRandom.forEach ((l,i) => {
+          palavraRandom.forEach((l,i) => {
             if (l === letra){
               novaPalavra[i] = l
+              setPalavraJogo(novaPalavra)              
             }
           })
-          setPalavraJogo(novaPalavra)
+          
           if (palavraRandom.join('') === novaPalavra.join('')){
             setClasseCor('green')
             inativar()
