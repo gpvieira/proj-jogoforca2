@@ -22,17 +22,17 @@ export default function Jogo({setPalavraRandom, palavraRandom, erros, setErros, 
         setClasseCor('black')    
         const indiceRandom = Math.floor(Math.random() * palavras.length)
         const palavra = palavras[indiceRandom]
-        setPalavraRandom(palavra);
         const arrayPalavra = palavra.split('');
+        setPalavraRandom(arrayPalavra);        
         const espacosEmBranco = arrayPalavra.map(letra => ' _')
         setPalavraJogo(espacosEmBranco)
      }    
 
     return (
         <div className='forca'>
-            <img src={imagens[erros]} alt='img da forca' />
-            <button onClick={comecarJogo}>Escolher Palavra</button>
-            <h1 className={classeCor}>{palavraJogo}</h1>
+            <img src={imagens[erros]} alt='img da forca' data-test="game-image"/>
+            <button class="botao-iniciar" onClick={comecarJogo} data-test="choose-word">Escolher Palavra</button>
+            <h1 className={classeCor} data-test="word">{palavraJogo}</h1>
         </div>
     )
 }

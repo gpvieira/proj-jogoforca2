@@ -14,7 +14,7 @@ export default function Letras({erros, setErros, palavraJogo, setPalavraJogo, pa
           palavraRandom.forEach((l,i) => {
             if (l === letra){
               novaPalavra[i] = l
-              setPalavraJogo(novaPalavra)              
+              setPalavraJogo(novaPalavra)             
             }
           })
           
@@ -41,7 +41,7 @@ export default function Letras({erros, setErros, palavraJogo, setPalavraJogo, pa
     
     return (
         <div className='alfabeto'>
-          {alfabeto.map(letra=> (<button key={letra} disabled={letrasEscolhidas.includes(letra)} onClick={()=>selecionarLetra(letra)}>{letra}</button>))}
+          {alfabeto.map(letra=> (<button key={letra} disabled={letrasEscolhidas.includes(letra)} onClick={()=>selecionarLetra(letra)} data-test="letter">{letra}</button>))}
         </div>
     )
 }

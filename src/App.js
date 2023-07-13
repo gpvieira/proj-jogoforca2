@@ -22,12 +22,7 @@ export default function App() {
       <Jogo palavraRandom={palavraRandom} setPalavraRandom={setPalavraRandom} erros={erros} setErros={setErros} palavraJogo={palavraJogo} setPalavraJogo={setPalavraJogo} classeCor={classeCor} setClasseCor={setClasseCor} setDesabilitadorElementos={setDesabilitadorElementos} letrasEscolhidas={letrasEscolhidas} setLetrasEscolhidas={setLetrasEscolhidas}/>
       
       <Letras palavraRandom={palavraRandom} setPalavraRandom={setPalavraRandom} erros={erros} setErros={setErros} palavraJogo={palavraJogo} setPalavraJogo={setPalavraJogo} setClasseCor={setClasseCor} setDesabilitadorElementos={setDesabilitadorElementos} letrasEscolhidas={letrasEscolhidas} setLetrasEscolhidas={setLetrasEscolhidas} alfabeto={alfabeto}/>
-
-      <div className='input'>
-        <span>Já sei a palavra</span>
-        <input disabled={desabilitadorElementos}/>
-        <button disabled={desabilitadorElementos}>Chutar</button>
-      </div>      
+    
     </div>
   );
 }
